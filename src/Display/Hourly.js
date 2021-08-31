@@ -1,6 +1,4 @@
 import Card from "../UI/Card";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 function toWeekDay(dt) {
 	return new Date(dt * 1000).toLocaleString("default", { weekday: "long" });
@@ -11,14 +9,7 @@ function toMonth(dt) {
 }
 
 function Hourly(props) {
-  const [hourlyWeather, setHourlyWeather] = useState({});
-	const urlHourly = `https://api.openweathermap.org/data/2.5/forecast?lat=37&lon=-121&cnt=6&units=metric&appid=${props.api}`;
-	useEffect(() => {
-		axios.get(urlHourly).then((res) => {
-			const weatherPoints = res.data;
-			setHourlyWeather(() => weatherPoints);
-		});
-	});
+	
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -28,10 +19,10 @@ function Hourly(props) {
 			</header>
 			<div>
 				{/* <h1>{Weekly.location}</h1> */}
-				<h1>{hourlyWeather.timezone}</h1>
+				<h1>{props.weather.timezone}</h1>
 				<div className="weather-cards">
-					{hourlyWeather.daily &&
-						hourlyWeather.daily.map((day, ind) => {
+					{props.weather.daily &&
+						props.weather.daily.map((day, ind) => {
 							if (ind < 5) {
 								return (
 									<div onClick={props.onDaily} key={day.dt}>
