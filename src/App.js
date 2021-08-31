@@ -11,7 +11,7 @@ const urlHourly = `https://api.openweathermap.org/data/2.5/forecast?lat=37&lon=-
 function App() {
 	const [weather, setWeather] = useState({});
 	const [type, setType] = useState("daily");
-	const [url, setUrl] = useState();
+	const [url, setUrl] = useState(urlDaily);
 
 	useEffect(() => {
 		axios.get(url).then((res) => {
