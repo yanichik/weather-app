@@ -36,8 +36,10 @@ function Daily(props) {
 								return (
 									<div onClick={() => props.onHourly(day.dt)} key={day.dt}>
 										<Card className="Card">
-											<h2>{toWeekDay(day.dt)}</h2>
-											<h3>
+											<h2 style={{ padding: "0px", margin: "0px" }}>
+												{toWeekDay(day.dt)}
+											</h2>
+											<h3 style={{ padding: "0px", margin: "0px" }}>
 												{toMonth(day.dt)} {new Date(day.dt * 1000).getDate()},{" "}
 												{new Date(day.dt * 1000).getFullYear()}
 											</h3>
