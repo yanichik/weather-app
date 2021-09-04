@@ -36,20 +36,22 @@ function Daily(props) {
 								return (
 									<div onClick={() => props.onHourly(day.dt)} key={day.dt}>
 										<Card className="Card">
-											<h2 style={{ padding: "0px", margin: "0px" }}>
-												{toWeekDay(day.dt)}
-											</h2>
-											<h3 style={{ padding: "0px", margin: "0px" }}>
+											{/* <h2 style={{ padding: "0px", margin: "0px" }}> */}
+											<h2 className="close-in-dist">{toWeekDay(day.dt)}</h2>
+											<h3 className="close-in-dist">
 												{toMonth(day.dt)} {new Date(day.dt * 1000).getDate()},{" "}
 												{new Date(day.dt * 1000).getFullYear()}
 											</h3>
 											{/* &#8451; => deg C */}
 											<h2>{Math.round(day.temp.day)} &#8451;</h2>
 											<img
+												className="close-in-dist"
 												src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
 												alt="icon depicts current weather"
 											/>
-											<h4>{day.weather[0].description}</h4>
+											<h4 className="close-in-dist">
+												{day.weather[0].description}
+											</h4>
 										</Card>
 									</div>
 								);

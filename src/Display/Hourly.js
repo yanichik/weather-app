@@ -33,10 +33,8 @@ function Hourly(props) {
 									<div onClick={props.onDaily} key={hour.dt}>
 										<div key={hour.dt}>
 											<Card>
-												<h2 style={{ padding: "0px", margin: "0px" }}>
-													{toWeekDay(hour.dt)}
-												</h2>
-												<h3 style={{ padding: "0px", margin: "0px" }}>
+												<h2 className="close-in-dist">{toWeekDay(hour.dt)}</h2>
+												<h3 className="close-in-dist">
 													{toMonth(hour.dt)}{" "}
 													{new Date(hour.dt * 1000).getDate()},{" "}
 													{new Date(hour.dt * 1000).getFullYear()}
@@ -44,10 +42,13 @@ function Hourly(props) {
 												<h3>{toHour(hour.dt)}</h3>
 												<h2>{Math.round(hour.main.temp)} &#8451;</h2>
 												<img
+													className="close-in-dist"
 													src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}.png`}
 													alt="icon depicts current weather"
 												/>
-												<h4>{hour.weather[0].description}</h4>
+												<h4 className="close-in-dist">
+													{hour.weather[0].description}
+												</h4>
 											</Card>
 										</div>
 									</div>
